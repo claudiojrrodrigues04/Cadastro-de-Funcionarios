@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Editar Funcionário</h2>
+
+{# action=/employees/ID, method_override=PUT, employee=OBJETO #}
+{% include "employees/form.html" with context %}
+{% endblock %}

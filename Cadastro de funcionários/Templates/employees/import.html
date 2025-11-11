@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Importar funcionários via Excel</h2>
+
+<p class="muted">
+  Envie um arquivo .xlsx com as colunas: 
+  <b>Nome</b> | <b>Email</b> | <b>Salário</b> | <b>Cargo</b> | <b>Departamento</b> | <b>Telefone</b>
+</p>
+
+<form action="/employees/import" method="post" enctype="multipart/form-data" class="form">
+  <label>Arquivo (.xlsx)
+    <input type="file" name="file" accept=".xlsx" required />
+  </label>
+
+  <div class="form-actions">
+    <a class="btn" href="/employees">Cancelar</a>
+    <button class="btn primary" type="submit">Importar</button>
+  </div>
+</form>
+
+{% if report %}
+  <hr>
+  <h3>Resultado da importação</h3>
+  <p>Importados: {{ report.imported }}</p>
+  <p>Ignorados: {{ report.skipped }}</p>
+
+  {% if report.errors and report.errors|length %}
+    <h4>Erros</h4>
+    <ul>
+      {% for e in report.errors %}
+        <li>Linha {{ e.row }}: {{ e.error }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Novo Funcionário</h2>
+
+{# action=/employees, method_override=POST, employee=None #}
+{% include "employees/form.html" with context %}
+{% endblock %}

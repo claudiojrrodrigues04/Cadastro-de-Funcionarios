@@ -1,0 +1,204 @@
+/* app/static/style.css (Versão 2.0) */
+
+/* 1. Importa uma fonte profissional do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 2. Define variáveis de cor (CSS Variables) */
+:root {
+    --primary-color: #0056b3;  /* Um azul mais rico */
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --light-color: #ffffff;
+    --dark-color: #343a40;
+    --text-color: #495057;
+    --bg-color: #f8f9fa;      /* Fundo da página um pouco cinza */
+    --border-color: #dee2e6;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --border-radius: 20px; /* Cantos mais arredondados */
+}
+
+/* 3. Reset e Tipografia Global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding-bottom: 60px;
+}
+
+/* 4. Navbar (Barra de Navegação) - Agora é branca! */
+.navbar {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.navbar .brand {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700; /* Mais peso */
+}
+
+/* 5. Container e Títulos */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+/* 6. Tabela Melhorada */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background-color: var(--light-color);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Para o radius funcionar no <th> */
+}
+
+.table th, .table td {
+    padding: 1rem; /* Mais espaçamento */
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+    background-color: var(--bg-color);
+    color: #333;
+    font-weight: 600;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f8ff; /* Um azul bem claro no hover */
+}
+
+.table .actions {
+    text-align: right; /* Alinha os botões à direita */
+}
+
+/* 7. Botões (com transição suave) */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background-color: var(--border-color);
+    color: var(--dark-color);
+    margin-right: 5px;
+    transition: all 0.2s ease; /* Transição suave! */
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+.btn.danger {
+    background-color: var(--danger-color);
+    color: var(--light-color);
+}
+
+/* Efeitos Hover */
+.btn:hover {
+    transform: translateY(-2px); /* Levanta o botão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn.primary:hover { 
+    background-color: #004494; /* Azul mais escuro */
+}
+.btn.danger:hover { 
+    background-color: #c82333;
+}
+
+/* 8. Formulários */
+.form {
+    background-color: var(--light-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+.form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form input[type="number"],
+.form input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Destaque no input focado */
+.form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.form-actions {
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+/* 9. Outros */
+.muted {
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+.details {
+    list-style: none;
+    padding: 2rem;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
+.details li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bg-color);
+}
+.details li:last-child {
+    border-bottom: none;
+}
+.details li strong {
+    min-width: 150px;
+    display: inline-block;
+    color: var(--dark-color);
+}
+
+/* Posição dos botões de topo */
+.top-actions {
+    display: flex;
+    justify-content: flex-end; /* Joga para a direita */
+    margin-bottom: 1rem;
+    margin-top: -60px; /* Puxa para cima, alinhado com o H2 */
+}

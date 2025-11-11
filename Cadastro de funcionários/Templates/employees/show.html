@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>
+    <small>Código: {{ employee.id }}</small><br>
+    {{ employee.name }}
+</h2>
+
+<ul class="details">
+    <li><strong>Email:</strong> {{ employee.email }}</li>
+    <li><strong>Telefone:</strong> {{ employee.phone | default('Não informado') }}</li>
+    <li><strong>Cargo:</strong> {{ employee.position | default('Não informado') }}</li>
+    <li><strong>Departamento:</strong> {{ employee.department | default('Não informado') }}</li>
+    <li><strong>Salário:</strong> {{ employee.salary|brl_price }}</li>
+    
+    {% if employee.created_at %}
+    <li><strong>Criado em:</strong> {{ employee.created_at | brl_date }}</li>
+    {% endif %}
+
+    {% if employee.updated_at %}
+    <li><strong>Atualizado em:</strong> {{ employee.updated_at | brl_date }}</li>
+    {% endif %}
+</ul>
+
+<p class="actions">
+    <a class="btn" href="/employees/{{ employee.id }}/edit">Editar</a>
+    <a class="btn" href="/employees">Voltar</a>
+</p>
+{% endblock %}
