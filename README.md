@@ -46,7 +46,7 @@ Siga os passos abaixo para rodar o projeto em sua máquina local.
 
 **1. Clone o repositório:**
 ```bash
-git clone [https://github.com/SEU_USUARIO/NOME_DO_SEU_REPO.git](https://github.com/SEU_USUARIO/NOME_DO_SEU_REPO.git)
+git clone [https://github.com/claudiojrrodrigues04/Cadastro-de-Funcion-rio.git](https://github.com/claudiojrrodrigues04/Cadastro-de-Funcion-rio.git)
 cd NOME_DO_SEU_REPO
 ```
 
