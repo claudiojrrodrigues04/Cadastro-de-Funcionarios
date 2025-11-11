@@ -46,8 +46,8 @@ Siga os passos abaixo para rodar o projeto em sua máquina local.
 
 **1. Clone o repositório:**
 ```bash
-git clone [https://github.com/claudiojrrodrigues04/Cadastro-de-Funcion-rio.git](https://github.com/claudiojrrodrigues04/Cadastro-de-Funcion-rio.git)
-cd NOME_DO_SEU_REPO
+git clone [https://github.com/claudiojrrodrigues04/Cadastro-de-Funcionarios.git](https://github.com/claudiojrrodrigues04/Cadastro-de-Funcionarios.git)
+cd Cadastro-de-Funcionarios
 ```
 
 **2. (Opcional) Crie um Ambiente Virtual (Virtual Environment):**
