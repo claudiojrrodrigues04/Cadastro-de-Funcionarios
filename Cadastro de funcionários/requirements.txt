@@ -5,3 +5,5 @@ SQLAlchemy
 jinja2
 openpyxl
 python-multipart
+passlib[bcrypt]
+python-jose

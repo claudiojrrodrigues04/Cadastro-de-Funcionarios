@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Login do Sistema</h2>
+    <p>Por favor, insira suas credenciais para continuar.</p>
+
+    <form action="/login" method="post" class="auth-form">
+    
+        {% if error_message %}
+            <div class="error-message">
+                {{ error_message }}
+            </div>
+        {% endif %}
+        
+        <div>
+            <label for="username">Usuário (username):</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        
+        <button type="submit">Entrar</button>
+    </form>
+    
+    <p class="auth-switch">
+        Não tem uma conta? <a href="/register">Registre-se aqui</a>.
+    </p>
+</div>
+{% endblock %}

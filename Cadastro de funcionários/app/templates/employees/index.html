@@ -1,53 +1,52 @@
 {% extends "base.html" %}
+
+{% block title %}Funcionários{% endblock %}
+
 {% block content %}
-<h2>Funcionários</h2>
+<div class="container">
+    <h2>Lista de Funcionários</h2>
+    
+    <a href="/employees/new" class="button-new">
+        Adicionar Novo Funcionário
+    </a>
 
-<a class="btn primary" href="/employees/new" style="float: right; margin-top: -50px;">+ Novo Funcionário</a>
-
-
-{% if employees and employees|length %}
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Cargo</th>
-            <th>Salário</th>
-            <th>Criado em</th>
-            <th style="width:260px;"></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for p in employees %}
-        <tr>
-            <td>{{ p.id }}</td>
-            <td>{{ p.name }}</td>
-            <td>{{ p.email }}</td>
-            <td>{{ p.position }}</td>
-            <td>{{ p.salary|brl_price }}</td>
-            <td>{{ p.created_at | brl_date }}</td>
-            <td class="actions">
-                <a class="btn" href="/employees/{{ p.id }}">
-                    <i class="fas fa-eye"></i> Detalhes
-                </a>
-                
-                <a class="btn" href="/employees/{{ p.id }}/edit">
-                    <i class="fas fa-pencil-alt"></i> Editar
-                </a>
-
-                <form action="/employees/{{ p.id }}" ...>
-                    <button class="btn danger" type="submit" ...>
-                        <i class="fas fa-trash-alt"></i> Excluir
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Salário</th>
+                <th>Departamento</th>
+                <th>Cargo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in employees %}
+            <tr id="employee-row-{{ p.id }}">
+                <td>{{ p.id }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.email }}</td>
+                <td>{{ p.phone or 'N/A' }}</td>
+                <td>{{ p.salary | brl_price }}</td>
+                <td>{{ p.department.name if p.department else 'N/A' }}</td>
+                <td>{{ p.position.title if p.position else 'N/A' }}</td>
+                <td>
+                    <a href="/employees/{{ p.id }}/edit" class="button-edit">Editar</a>
+                    <button class
+="button-delete delete-employee-btn" data-id="{{ p.id }}">
+                        Excluir
                     </button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<p class="muted">Nenhum funcionário cadastrado ainda.</p>
-{% endif %}
-
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="8">Nenhum funcionário cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

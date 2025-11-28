@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Funcionários</title>
-    
-    <link rel="stylesheet" href="/static/style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>{% block title %}Meu Projeto{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="/employees" class="brand">Gestão de Funcionários</a>
-        </div>
-    </nav>
+    <header>
+        <h1>Gestão de Funcionários</h1>
+        <nav>
+            {% if user %}
+                <a href="/employees">Funcionários</a>
+               
+                <a href="/departments">Departamentos</a>
+                <a href="/positions">Cargos</a>
+                    Logado como: <strong>{{ user.username }}</strong>
+                </span>
+                <a href="/logout" class="button-logout">Sair (Logout)</a>
+            
+            {% else %}
+                
+            {% endif %}
+        </nav>
+    </header>
 
-    <main class="container">
+    <main>
         {% block content %}{% endblock %}
     </main>
 
-    <script src="/static/app.js"></script>
+    <footer>
+        
+    </footer>
+
+    <script src="{{ url_for('static', path='/app.js') }}"></script>
 </body>
 </html>

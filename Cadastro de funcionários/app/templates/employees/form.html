@@ -13,13 +13,38 @@
         <input type="tel" name="phone" value="{{ employee.phone if employee else '' }}" />
     </label>
     
+    
     <label>Cargo
-        <input type="text" name="position" value="{{ employee.position if employee else '' }}" />
+        <select name="position_id">
+            <option value="">[Selecione um cargo]</option>
+            
+            {% for pos in positions %}
+                <option value="{{ pos.id }}"
+                    
+                    {% if employee and employee.position_id == pos.id %} selected {% endif %}
+                >
+                    {{ pos.title }}
+                </option>
+            {% endfor %}
+        </select>
     </label>
     
+    
     <label>Departamento
-        <input type="text" name="department" value="{{ employee.department if employee else '' }}" />
+        <select name="department_id">
+            <option value="">[Selecione um departamento]</option>
+            
+            {% for dept in departments %}
+                <option value="{{ dept.id }}"
+                
+                    {% if employee and employee.department_id == dept.id %} selected {% endif %}
+                >
+                    {{ dept.name }}
+                </option>
+            {% endfor %}
+        </select>
     </label>
+
 
     <label>Salário (R$)
         <input type="number" name="salary" step="0.01" min="0"
